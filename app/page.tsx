@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Image from "next/image"; // Import Image from Next.js
 import { Github, Linkedin, Mail, Download, ExternalLink } from "lucide-react";
 
 export default function Portfolio() {
@@ -72,10 +73,12 @@ export default function Portfolio() {
           id="home"
           className="min-h-screen flex flex-col justify-center items-center text-center"
         >
-          <img
+          <Image
             src="https://scontent.fdac5-1.fna.fbcdn.net/v/t39.30808-1/449108101_972192707712872_2096048893628026102_n.jpg?stp=c0.0.600.600a_dst-jpg_s200x200&_nc_cat=110&ccb=1-7&_nc_sid=0ecb9b&_nc_ohc=e2E6LKIP13gQ7kNvgEDsGbG&_nc_zt=24&_nc_ht=scontent.fdac5-1.fna&_nc_gid=AEM8NM2J1qlZCUBwLsAXkuz&oh=00_AYDjAI2qdUm3ohPfHD0RGO4j_3i_iHwGjuMAl07UkWXFTw&oe=67173071"
             alt="Rohmote Goni"
             className="rounded-full mb-8"
+            width={200} // Set a width for optimization
+            height={200} // Set a height for optimization
           />
           <h1 className="text-6xl font-bold mb-4">Rohmote Goni</h1>
           <p className="text-3xl mb-8 text-blue-400">
@@ -95,10 +98,10 @@ export default function Portfolio() {
         >
           <h2 className="text-5xl font-bold mb-8">About Me</h2>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
-            I'm a passionate full-stack developer from Sylhet, Bangladesh. With
-            a strong foundation in both front-end and back-end technologies, I
-            love creating robust and user-friendly web applications that solve
-            real-world problems.
+            I&apos;m a passionate full-stack developer from Sylhet, Bangladesh.
+            With a strong foundation in both front-end and back-end
+            technologies, I love creating robust and user-friendly web
+            applications that solve real-world problems.
           </p>
           <h3 className="text-3xl font-bold mb-4">Education</h3>
           <p className="text-xl mb-8">HSC 2025 Batch</p>
@@ -202,79 +205,37 @@ export default function Portfolio() {
               Send Message
             </button>
           </form>
-          <div className="mt-16 flex justify-center space-x-8">
-            <a
-              href="https://github.com/rohmotegoni"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white"
-            >
-              <Github className="h-12 w-12" />
-            </a>
-            <a
-              href="https://linkedin.com/in/rohmotegoni"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white"
-            >
-              <Linkedin className="h-12 w-12" />
-            </a>
-            <a
-              href="mailto:rohmotegoni@gmail.com"
-              className="text-gray-400 hover:text-white"
-            >
-              <Mail className="h-12 w-12" />
-            </a>
-          </div>
         </section>
       </main>
 
-      <footer className="bg-gray-900 text-center p-8 mt-32">
-        <div className="flex justify-center space-x-8 mb-4">
-          {["home", "about", "projects", "skills", "resume", "contact"].map(
-            (section) => (
-              <button
-                key={section}
-                onClick={() => {
-                  setActiveSection(section);
-                  document
-                    .getElementById(section)
-                    ?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="text-gray-400 hover:text-white capitalize"
-              >
-                {section}
-              </button>
-            )
-          )}
-        </div>
-        <div className="flex justify-center space-x-8 mb-4">
+      <footer className="bg-black bg-opacity-90 p-4 text-center">
+        <p className="text-sm">© 2024 Rohmote Goni. All rights reserved.</p>
+        <div className="flex justify-center space-x-4 mt-2">
           <a
             href="https://github.com/rohmotegoni"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white"
+            aria-label="Github"
           >
             <Github className="h-6 w-6" />
           </a>
           <a
-            href="https://linkedin.com/in/rohmotegoni"
+            href="https://www.linkedin.com/in/rohmotegoni/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-400 hover:text-white"
+            aria-label="LinkedIn"
           >
             <Linkedin className="h-6 w-6" />
           </a>
           <a
             href="mailto:rohmotegoni@gmail.com"
-            className="text-gray-400 hover:text-white"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Email"
           >
             <Mail className="h-6 w-6" />
           </a>
         </div>
-        <p className="text-gray-400 mt-8">
-          &copy; {new Date().getFullYear()} Rohmote Goni
-        </p>
       </footer>
     </div>
   );
